@@ -6,7 +6,10 @@
 shuname="$(shell uname)"
 OSARCH=$(shell echo $(shuname)|awk -F '-' '{ print $$1 }')
 
+CC=gcc
+
 # default build is release
+# make BUILD=DEBUG
 BUILD ?= RELEASE
 
 # project source dirs
@@ -22,7 +25,7 @@ INCDIRS += -I$(SRC_DIR) -I$(COMMON_DIR)
 # compile directives
 CFLAGS += -std=gnu99 -D_GNU_SOURCE -fPIC -Wall -Wno-unused-function -Wno-unused-variable
 
-# load libs
+# load libs: -lpthread = libpthread.so
 LDFLAGS += -lm -lpthread
 
 # no mingw default
@@ -77,7 +80,7 @@ all: helloworld
 
 helloworld: $(SRC_DIR)/helloworld.c
 	@echo "Build $(BUILD) app..."
-	gcc $(CFLAGS) $(SRC_DIR)/helloworld.c -o helloworld $(INCDIRS) $(LDFLAGS)
+	$(CC) $(CFLAGS) $(SRC_DIR)/helloworld.c -o helloworld $(INCDIRS) $(LDFLAGS)
 	@echo "Done."
 
 

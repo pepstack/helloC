@@ -3,6 +3,8 @@
 
 一个简单的 C 程序示例，展示如何用 VSC (VSCode) 开发、编译和调试64位程序，该程序运行的目标主机在 Windows 和 Linux 上，开发环境是 Windows 10 Home。
 
+  https://github.com/pepstack/helloC.git
+
 该示例展示了如何配置 VSC 工程，以适应不同的编译和运行环境。
 
 ### 1.1 环境搭建
